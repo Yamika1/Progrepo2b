@@ -1,15 +1,15 @@
 ﻿@model Programming2B_part2.Models.Claims
 
 @{
-    ViewBag.Title = "Review";
+    ViewBag.Title = "Claim Review";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <nav class="mb-4">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/Lecturer">My claims</a></li>
-        <li class="breadcrumb-item">Review</li>
+        <li class="breadcrumb-item"><a href="/Lecturer">Claims Review</a></li>
+        <li class="breadcrumb-item">Claims Review</li>
     </ol>
 </nav>
 
@@ -22,7 +22,7 @@
     <div class="col-lg-8">
         <div class="card">
             <div class="card-header d-flex">
-          
+                <h4>@Model.ClaimName</h4>
                 <div>
                     @if (Model.Status == Programming2B_part2.Models.ClaimStatus.Pending)
                     {
@@ -76,10 +76,10 @@
                     @Html.AntiForgeryToken()
                     <input type="hidden" name="id" value="@Model.ClaimId" />
 
-                   
+
 
                     <button type="submit" class="btn btn-success btn-lg">
-                        Approve 
+                        Approve
                     </button>
                 </form>
 
@@ -90,11 +90,11 @@
                     <div class="mb-3">
                         <label class="form-label">Reason for Declining *</label>
                         <textarea name="comments" class="form-control" rows="3" placeholder="Please provide detailed reasons for declining..." required></textarea>
-                        
+
                     </div>
 
                     <button type="submit" class="btn btn-danger btn-lg">
-                        Decline 
+                        Decline
                     </button>
                     <a href="/AcademicManagers" class="btn btn-secondary btn-lg">Cancel</a>
                 </form>
@@ -123,7 +123,7 @@
                         <strong>@doc.FileName</strong>
                         <span class="badge bg-success"> Encrypted</span>
                         <small>@(doc.FileSize / 1024) KB</small>
-                        <a asp-controller="Lecturer"
+                        <a asp-controller="LecturerController"
                            asp-action="DownloadDocument"
                            asp-route-claimId="@Model.ClaimId"
                            asp-route-docId="@doc.Id"

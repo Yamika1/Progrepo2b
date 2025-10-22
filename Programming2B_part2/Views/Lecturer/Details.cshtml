@@ -84,13 +84,14 @@
 							<strong>@doc.FileName</strong>
 							<span class="badge bg-success"> Encrypted</span>
 							<small>@(doc.FileSize / 1024) KB</small>
-							<a asp-controller="Lecturer"
-							   asp-action="DownloadDocument"
-							   asp-route-claimId="@Model.ClaimId"
-							   asp-route-docId="@doc.Id"
-							   class="btn btn-sm btn-primary mt-2">
-								Download & Decrypt
-							</a>
+						
+								<a asp-controller="Lecturer"
+		   asp-action="DownloadDocument"
+		   asp-route-claimId="@Model.ClaimId"
+		   asp-route-docId="@doc.Id"
+		   class="btn btn-sm btn-primary mt-2">
+		    Download & Decrypt
+		</a>
 						</div>
 					}
 				</div>

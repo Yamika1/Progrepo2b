@@ -138,15 +138,18 @@ namespace Programming2B_part2.Controllers
             try
             {
                 var claim = ClaimSection.GetClaimById(claimId);
-                if (claim == null) return NotFound("Claim not found.");
+                if (claim == null)
+                    return NotFound("Claim not found.");
 
                 var doc = claim.Documents.FirstOrDefault(d => d.Id == docId);
-                if (doc == null) return NotFound("Document not found.");
+                if (doc == null)
+                    return NotFound("Document not found.");
 
                 var filePath = Path.Combine(_environment.WebRootPath, doc.FilePath.TrimStart('/'));
-                if (!System.IO.File.Exists(filePath)) return NotFound("File not found.");
+                if (!System.IO.File.Exists(filePath))
+                    return NotFound("File not found.");
 
-                var decryptedStream = await _encryptionService.DecryptFileStream(filePath);
+                using var decryptedStream = await _encryptionService.DecryptFileStream(filePath);
 
                 var contentType = Path.GetExtension(doc.FileName).ToLower() switch
                 {
@@ -157,11 +160,12 @@ namespace Programming2B_part2.Controllers
                     _ => "application/octet-stream"
                 };
 
-                return File(decryptedStream, contentType, doc.FileName);
+                // Return decrypted file for download
+                return File(decryptedStream.ToArray(), contentType, doc.FileName);
             }
             catch (Exception ex)
             {
-                return BadRequest("Error downloading file: " + ex.Message);
+                return BadRequest($"Error downloading file: {ex.Message}");
             }
         }
     }
