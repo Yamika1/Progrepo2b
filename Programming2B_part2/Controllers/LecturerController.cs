@@ -160,7 +160,7 @@ namespace Programming2B_part2.Controllers
                     _ => "application/octet-stream"
                 };
 
-                // Return decrypted file for download
+                
                 return File(decryptedStream.ToArray(), contentType, doc.FileName);
             }
             catch (Exception ex)
