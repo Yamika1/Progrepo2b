@@ -7,6 +7,7 @@ using System.Text;
 namespace UnitTest
 {
     public class UnitTest1
+        // 5 unit tests
     {
         [Fact]
         public void SubmitClaim_ShouldAddNewClaim()
