@@ -1,0 +1,70 @@
+﻿@model Programming2B_part2.Models.Claims
+@{
+	ViewBag.Title = "SUBMIT CLAIM";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-8 mc-auto">
+		<div class="card">
+			<div class="card-header">
+				<h3>New Book</h3>
+			</div>
+			<div class="card-body">
+				<form asp-action="AddClaim" method="post" enctype="multipart/form-data">
+					@Html.AntiForgeryToken()
+					<div class="mb-3">
+						<label asp-for="ClaimName" class="form-label">Claim Name</label>
+						<input asp-for="ClaimName" type="text" class="form-control" placeholder="Enter Claim Name" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="HoursWorked" class="form-label">HoursWorked</label>
+						<input asp-for="HoursWorked" type="text" class="form-control" placeholder="Enter Hours Worked" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="HourlyRate" class="form-label">HoursWorked</label>
+						<input asp-for="HourlyRate" type="text" class="form-control" placeholder="Enter Hours Worked" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="ClaimMonth" class="form-control">ClaimMonth</label>
+						<select asp-for="ClaimMonth" class="form-select">
+							<option>Select Claim Month</option>
+							<option>January </option>
+							<option>February </option>
+							<option>March </option>
+							<option>April </option>
+							<option>May </option>
+							<option>June </option>
+							<option>July </option>
+							<option>August </option>
+							<option>September </option>
+							<option>October </option>
+							<option>November </option>
+							<option>December </option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label asp-for="ClaimType" class="form-label">ClaimType</label>
+						<input asp-for="ClaimType" type="text" class="form-control" placeholder="Enter Claim Type" />
+					</div>
+					<div class="mb-3">
+						<label asp-for="SubmittedDate" class="form-label">SubmittedDate</label>
+						<input asp-for="SubmittedDate" type="text" class="form-control" placeholder="Enter Submitted Date" />
+					</div>
+
+
+					<div class="mb-3">
+						<label class="form-label">Supporting Documents</label>
+						<input type="file" class="form-control"></<input>
+						<small class="form-text text-muted">Upload book cover, table pof contents etc</small>
+					</div>
+
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+						<a href="/Lecturer" class="btn btn-secondary me-md-2">Cancel</a>
+						<button type="submit" class="btn btn-primary">Add Claim</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

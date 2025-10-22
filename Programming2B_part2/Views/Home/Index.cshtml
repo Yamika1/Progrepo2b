@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-image: url("/images/Screenshot 2025-09-15 115943.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+    }
+</style>
+
+
+
+<div class="d-flex">
+
+    <div class="bg-dark text-white p-3" style="width: 250px; min-height: 100vh;">
+        <h4 class="mb-4">   Contract Monthly Claim System</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+                <a asp-controller="AcademicManagers" asp-action="Index" class="btn btn-success w-100">AcademicManagers</a>
+            </li>
+        
+            <li class="nav-item mb-2">
+                <a asp-controller="Lecturer" asp-action="Index" class="btn btn-info w-100">Lecturer</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a asp-controller="LecturerViewClaim" asp-action="Index" class="btn btn-primary w-100">LecturerViewClaim</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a asp-controller="ProgrammeCoordinators" asp-action="Index" class="btn btn-warning w-100">ProgrammeCoordinators</a>
+            </li>
+           
+        </ul>
+    </div>
+
+</div>
