@@ -131,7 +131,7 @@ namespace Programming2B_part2.Controllers
             }
         }
 
-
+        // upload documents
 
         public async Task<IActionResult> DownloadDocument(int claimId, int docId)
         {
